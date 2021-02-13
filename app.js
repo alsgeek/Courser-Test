@@ -1,4 +1,5 @@
-(function () {
+(
+  function () {
   angular.module('application', [])
   .controller('lunchCheckController', controller);
   controller.$inject = ['$scope'];
@@ -9,8 +10,8 @@
     $scope.redColorOpacity = '';
     $scope.check = function() {
       let count = 0;
-      let a[i] = $scope.items.split(',');
-      a[i].forEach((item) => {
+      let arrayOfItems = $scope.items.split(',');
+      arrayOfItems.forEach((item) => {
       if (item!= false) {
         count++;
       }
