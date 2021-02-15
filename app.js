@@ -1,8 +1,6 @@
 (function () {
 	'use strict';
-
 	angular.module('LunchCheck',[]).controller('lunchCheckController', LunchCheckController);
-
 	LunchCheckController.$inject =['$scope'];
 
 	function LunchCheckController ($scope){
@@ -23,10 +21,10 @@
 				}
 				if(count > 0){
 					if(count <=3){
-						$scope.msg = 'Enjoy!';
+						$scope.msg = '...Enjoy...';
 					}
 					else if(count > 3){
-						$scope.msg = 'Too much!'
+						$scope.msg = 'Too much!!'
 					}
 					$scope.fontStyle = {
 						"color":"green"
