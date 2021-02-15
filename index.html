@@ -1,30 +1,36 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="application">
- <head>
-   <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lunch check</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./angular.js">
-    <script src="./app.js"></script>
- </head>
-  <body ng-controller="lunchCheckController">
-    <div class="container">
-      <label >
-        Enter Items That You Are Usually Eat For Lunch
-        <b>(Please use Comma-Separated)</b>
-        <br>
-        <b>NOTE:- </b>
-           Empty item does not consider
-        </label>
-            <input type="text" class="items" ng-model="items">
-            <button ng-click="check();">Check If Too Much</button>
-            <label>{{messageNotification}}</label>
-            <div>
-                <div class="circle green {{greenColorOpacity}}"></div>
-                <div class="circle red {{redColorOpacity}}"></div>
-    </div>
+<!doctype html>
+<html lang="en" ng-app="LunchCheck">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script type="text/javascript" src='app.js'></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <style class="message">
+    </style>
+  </head>
+<body>
+   <div class="container" ng-controller="lunchCheckController">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu"class="form-control"
+              type="text"
+              ng-model="list"
+              placeholder="list comma separated dishes you usually have for lunch"
+              ng-style="boxStyle">
+             <span>Note: Empty items will not be considered, Ex: [, , , , , ] will prompt you to enter the data </span>
+         </div>
+         <div ng-style ="fontStyle">
+           {{msg}}
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="checkItems()">Check If Too Much</button>
+         </div>
+         <div class="form-group message">
+           <!-- Your message can go here. -->
+         </div>
    </div>
-  </body>
+</body>
 </html>

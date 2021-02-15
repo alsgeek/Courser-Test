@@ -1,40 +1,56 @@
-(
-  function () {
-  angular.module('application', [])
-  .controller('lunchCheckController', controller);
-  controller.$inject = ['$scope'];
-  function controller($scope) {
-    $scope.greenColorOpacity = '';
-    $scope.items = '';
-    $scope.messageNotification = '';
-    $scope.redColorOpacity = '';
+(function () {
+	'use strict';
 
-    $scope.check = function() {
-      let arrayOfItems = $scope.items.split(',');
-      let count = 0;
+	angular.module('LunchCheck',[]).controller('lunchCheckController', LunchCheckController);
 
-      arrayOfItems.forEach((item) => {
-      if (item!= false) {
-        count++;
-      }
-      });
+	LunchCheckController.$inject =['$scope'];
 
-      if(count > 0 && count < 4) {
-        $scope.messageNotification = '..Enjoy..';
-        $scope.redColorOpacity = '';
-        $scope.greenColorOpacity = 'opaque';
-      }
-      else if (count >= 4) {
-        $scope.messageNotification = 'Too much!!';
-        $scope.redColorOpacity = 'opaque';
-        $scope.greenColorOpacity = '';
-      }
-      else {
-        $scope.messageNotification = 'Please enter an item first';
-        $scope.redColorOpacity = 'opaque';
-        $scope.greenColorOpacity = '';
-      }
-    }
-  }
-}
-)()
+	function LunchCheckController ($scope){
+		$scope.list = '';
+		$scope.msg = '';
+		$scope.fontStyle = {};
+		$scope.boxStyle = {};
+
+		$scope.checkItems = function () {
+			console.log ('check Items');
+			console.log ($scope.list);
+			if($scope.list !== '') {
+				var arr = $scope.list.split(',');
+				var count =0;
+				for(var i =0; i<arr.length; i++){
+					if(arr[i].trim() !=='')
+						count++;
+				}
+				if(count > 0){
+					if(count <=3){
+						$scope.msg = 'Enjoy!';
+					}
+					else if(count > 3){
+						$scope.msg = 'Too much!'
+					}
+					$scope.fontStyle = {
+						"color":"green"
+					};
+					$scope.boxStyle = {
+						"border-color":"green"
+					};
+				}
+				else {
+					enterItems();
+				}
+			}
+			else {
+				enterItems();
+			}
+		}
+		var enterItems = function() {
+			$scope.msg = 'Please enter data first';
+				$scope.fontStyle = {
+					"color":"red"
+				};
+				$scope.boxStyle = {
+					"border-color":"red"
+				};
+		};
+	}
+})();
