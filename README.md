@@ -1,7 +1,7 @@
 # Coursera-Objective-I
 Summary:
-Create a front-end application that presents the user with a textbox where they can enter a list of dishes (comma-separated items) they would prefer to have for lunch.
- Once that's entered, the user has to click o the **"Check If Too Much"** button. 
+Create a front-end application 'Lunch Checker' that presents the user with a textbox where they can enter a list of dishes (comma-separated items)to have for lunch.
+ Once that's entered, the user has to click on the **"Check If Too Much"** button. 
  
  Note: no use on on-click, none of your variables/objects/functions "leak to the global scope". 
  
